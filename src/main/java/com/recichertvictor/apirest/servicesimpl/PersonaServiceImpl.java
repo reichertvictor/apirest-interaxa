@@ -6,6 +6,7 @@ import com.recichertvictor.apirest.services.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,16 +32,19 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
     @Override
+    @Transactional
     public Persona edit(Persona entity) throws RuntimeException {
         return personaRepository.save(entity);
     }
 
     @Override
+    @Transactional
     public Persona create(Persona entity) throws RuntimeException {
         return personaRepository.save(entity);
     }
 
     @Override
+    @Transactional
     public void delete(Long id) throws RuntimeException{
         /*La persona no se borra de la base de datos, se cambia el estado a empleado = flase */
         Optional<Persona> Entityfound = personaRepository.findById(id);
