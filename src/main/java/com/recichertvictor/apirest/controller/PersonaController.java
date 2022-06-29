@@ -14,7 +14,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/personas")
-//@CrossOrigin("/**")
 @CrossOrigin(origins= {"*"}, allowCredentials = "false" )
 public class PersonaController {
 
